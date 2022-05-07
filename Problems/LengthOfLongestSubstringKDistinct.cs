@@ -23,6 +23,14 @@ public class LengthOfLongestSubstringKDistinct
     {
         return new object[]{
             new object []{
+                "",
+                2,
+                0},
+            new object []{
+                "a",
+                0,
+                0},
+            new object []{
                 "eceba",
                 2,
                 3},
