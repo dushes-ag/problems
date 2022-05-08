@@ -15,10 +15,6 @@ public class WallsAndGates
 
         //assert
         Assert.Equal(expected, rooms);
-        for (var i = 0; i < rooms.Length; i++)
-        {
-            Assert.Equal(expected[i], rooms[i]);
-        }
     }
 
     public static object[] GetCases()
