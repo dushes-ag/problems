@@ -40,6 +40,33 @@ public class PacificAtlantic
                     new List<int>{3,1},
                     new List<int>{4,0}
                 }
+            },
+            new object[]{
+                new int [][]
+                {
+                    new int[]{3,3,3,3,3,3},
+                    new int[]{3,0,3,3,0,3},
+                    new int[]{3,3,3,3,3,3}
+                },
+                new List<List<int>>
+                {
+                    new List<int>{0,0},
+                    new List<int>{0,1},
+                    new List<int>{0,2},
+                    new List<int>{0,3},
+                    new List<int>{0,4},
+                    new List<int>{0,5},
+                    new List<int>{1,0},
+                    new List<int>{1,2},
+                    new List<int>{1,3},
+                    new List<int>{1,5},
+                    new List<int>{2,0},
+                    new List<int>{2,1},
+                    new List<int>{2,2},
+                    new List<int>{2,3},
+                    new List<int>{2,4},
+                    new List<int>{2,5}
+                }
             }
         };
     }
@@ -62,10 +89,10 @@ public class PacificAtlantic
                 pacificQueue.Enqueue((i, 0));
                 athlancicQueue.Enqueue((i, heights[0].Length - 1));
             }
-            for (var i = 0; i < heights[0].Length; i++)
+            for (var i = 1; i < heights[0].Length; i++)
             {
                 pacificQueue.Enqueue((0, i));
-                athlancicQueue.Enqueue((heights[0].Length - 1, i));
+                athlancicQueue.Enqueue((heights.Length - 1, i - 1));
             }
 
             var pacific = BFS(pacificQueue, heights);
