@@ -50,21 +50,21 @@ public class MakeConnected
             while (notVisitedItems.Count > 0)
             {
                 result++;
-                BFS(notVisitedItems.First(), notVisitedItems, map);
+                DFS(notVisitedItems.First(), notVisitedItems, map);
             }
             return result;
         }
-        private void BFS(int item, List<int> notVisitedItems, List<List<int>> map)
+        private void DFS(int item, List<int> notVisitedItems, List<List<int>> map)
         {
             if (!notVisitedItems.Contains(item))
             {
                 return;
             }
-            
+
             notVisitedItems.Remove(item);
             foreach (var _ in map[item])
             {
-                BFS(_, notVisitedItems, map);
+                DFS(_, notVisitedItems, map);
             }
         }
     }
