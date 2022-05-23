@@ -34,20 +34,19 @@ public class PredictTheWinner
     {
         public bool PredictTheWinner(int[] nums)
         {
-            return Turn(nums, 0, nums.Length - 1, true) >= 0;
-        }
+            var dp = new int[nums.Length];
 
-        public int Turn(int[] nums, int start, int finish, bool add)
-        {
-            if (start == finish)
+            for (var i = nums.Length - 1; i >= 0; i--)
             {
-                return nums[start] * (add ? 1 : -1);
+                for (var j = i; j < nums.Length; j++)
+                {
+                    dp[j] = i == j
+                    ? nums[i]
+                    : Math.Max(nums[j] - dp[j - 1], nums[i] - dp[j]);
+                }
             }
 
-            return Math.Max(
-                nums[start] - Turn(nums, start + 1, finish, !add),
-                nums[finish] - Turn(nums, start, finish - 1, !add)
-                );
+            return dp[nums.Length - 1] >= 0;
         }
     }
 }
