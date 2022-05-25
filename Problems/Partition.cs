@@ -32,7 +32,7 @@ public class Partition
             },
             new object[]{
                 "fff",
-                new[]{new[]{"f","f","f"},new[]{"f","ff"},new[]{"ff","f"},new[]{"fff"}}
+                new[]{new[]{"f","f","f"},new[]{"ff","f"},new[]{"f","ff"},new[]{"fff"}}
             }
         };
     }

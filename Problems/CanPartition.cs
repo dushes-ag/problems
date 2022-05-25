@@ -26,6 +26,9 @@ public class CanPartition
                 true},
             new object []{
                 new int[]{11,2,3,5},
+                false},
+            new object []{
+                new int[]{1,2,5},
                 false}
         };
     }
@@ -42,15 +45,11 @@ public class CanPartition
 
             var dp = new bool[sum / 2 + 1];
             dp[0] = true;
-            for (var i = 0; i < nums.Length; i++)
+            foreach (var num in nums)
             {
-                for (var j = 1; j < dp.Length; j++)
+                for (var j = dp.Length - 1; j >= num; j--)
                 {
-                    if (dp[j] || nums[i] > j)
-                    {
-                        continue;
-                    }
-                    dp[j] = dp[j - nums[i]];
+                    dp[j] |= dp[j - num];
                 }
             }
             return dp[dp.Length - 1];
