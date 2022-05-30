@@ -6,7 +6,7 @@ using Xunit;
 namespace Problems;
 
 ///https://leetcode.com/problems/course-schedule-ii/
-public class FindOrdergit
+public class FindOrder
 {
     [Theory]
     [MemberData(nameof(GetCases))]
