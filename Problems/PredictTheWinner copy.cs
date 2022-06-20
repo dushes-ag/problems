@@ -35,17 +35,18 @@ public class MaxScore
     {
         public int MaxScore(int[] cardPoints, int k)
         {
-            var rightSum = new int[cardPoints.Length + 1];
-            for (var i = 1; i <= cardPoints.Length; i++)
+            var rightSum = 0;
+            for (var i = k; i > 0; i--)
             {
-                rightSum[i] = cardPoints[cardPoints.Length - i] + rightSum[i - 1];
+                rightSum += cardPoints[cardPoints.Length - i];
             }
             var result = 0;
             var leftSum = 0;
             for (var i = 0; i <= k; i++)
             {
                 leftSum += i == 0 ? 0 : cardPoints[i - 1];
-                result = Math.Max(result, leftSum + (rightSum[k - i]));
+                rightSum -= i == 0 ? 0 : cardPoints[cardPoints.Length - k + i - 1];
+                result = Math.Max(result, leftSum + rightSum);
             }
             return result;
         }
